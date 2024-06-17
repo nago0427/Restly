@@ -19,6 +19,9 @@ default: &default
 
 development:
   <<: *default
+  username: root
+  password:
+  host: localhost
   database: restly_development
 
 # Warning: The database defined as "test" will be erased and
@@ -26,6 +29,10 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
+    adapter: mysql2
+  username: root
+  password:
+  host: localhost
   database: restly_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
@@ -53,3 +60,5 @@ production:
   database: restly_production
   username: restly
   password: <%= ENV["RESTLY_DATABASE_PASSWORD"] %>
+  adapter: postgresql
+  url: <%= ENV['DATABASE_URL'] %>
