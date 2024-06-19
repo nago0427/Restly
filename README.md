@@ -1,24 +1,45 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# アプリケーション名	
+* restly
 
-Things you may want to cover:
 
-* Ruby version
+# アプリケーション概要	
+忙しい現代人に対し、このアプリは意識的な休息を促し、学習や仕事のパフォーマンス向上をサポートします。忙しい日常に、質の高いリフレッシュを提供します。
 
-* System dependencies
+# URL	
+デプロイが完了次第記載する
 
-* Configuration
+# テスト用アカウント	
+ログインに必要な情報を記載
+Basic認証のID/Passを記載
 
-* Database creation
+# 利用方法	
+このアプリケーションの利用方法を記載
+箇条書きでリスト化
 
-* Database initialization
+# アプリケーションを作成した背景	
+このアプリケーションを通じて、どのような人の、どのような課題を解決しようとしているのかを記載。
+実装した機能についての画像やGIFおよびその説明※	実装した機能について、それぞれどのような特徴があるのかを列挙する形で記載。画像はGyazoで、GIFはGyazoGIFで撮影すること。
 
-* How to run the test suite
+# 実装予定の機能	
+洗い出した要件の中から、今後実装予定の機能がある場合は、その機能を記載。
 
-* Services (job queues, cache servers, search engines, etc.)
+# データベース設計	
+ER図を添付。
 
-* Deployment instructions
+# 画面遷移図	
+画面遷移図を添付。
 
-* ...
+# 開発環境	
+使用した言語・サービスを記載。
+
+# ローカルでの動作方法	
+git cloneしてから、ローカルで動作をさせるまでに必要なコマンドを記載。
+
+# 工夫したポイント	
+制作背景・使用技術・開発方法・タスク管理など、企業へＰＲしたい事柄を記載。
+
+# 改善点	より改善するとしたらどこか、それはどのようにしてやるのか。
+
+# 制作時間
