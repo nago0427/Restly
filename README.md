@@ -28,6 +28,46 @@ Basic認証のID/Passを記載
 # データベース設計	
 ER図を添付。
 
+# Users テーブル
+| Column             | Type      | Options                   |
+|--------------------|-----------|---------------------------|
+| nickname           | string    | null: false               |
+| email              | string    | null: false, unique: true |
+| password           | string    | null: false               |
+| encrypted_password | string    | null: false               |
+
+#### Association
+- has_many :break_times
+- has_many :not_todo_lists
+
+
+# break_times テーブル
+| Column      | Type      | Options                            |
+|-------------|-----------|------------------------------------|
+| break_time  | time      | null: false                        |
+| user        | references| null: false, foreign_key : true    |
+
+#### Association
+- belongs_to :user
+
+
+# not_todo_list　テーブル
+| Column      | Type      | Options                                   |
+|-------------|-----------|-------------------------------------------|
+| text        | text      | null: false                               |
+| user        | references| null: false, foreign_key : true           |
+
+#### Association
+- belongs_to :user
+
+
+# columns テーブル
+| Column      | Type      | Options                         |
+|-------------|-----------|---------------------------------|
+| text        | text      | null: false                     |
+
+
+
 # 画面遷移図	
 画面遷移図を添付。
 
