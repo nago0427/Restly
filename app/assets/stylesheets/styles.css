@@ -66,17 +66,61 @@ nav a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 20px;
+  margin: 40px;
 }
-
 .section {
   background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 80%;
   margin: 10px 0;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+/* タイマー */
+.time-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+
+.time-circle {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: #9ff4aa;
+}
+
+.time-remaining {
+  position: absolute;
+  z-index: 2;
+  font-size: 2em;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.progress-ring {
+  position: absolute;
+  z-index: 1;
+  transform: rotate(-360deg);
+}
+
+.progress-ring__circle {
+  transition: 0.35s stroke-dashoffset;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}
+
+
 
 .section-title {
   font-size: 24px;
@@ -96,7 +140,6 @@ nav a {
   font-size: 18px;
   border: 2px solid black;
 }
-
 .grid {
   display: flex;
   flex-wrap: wrap;

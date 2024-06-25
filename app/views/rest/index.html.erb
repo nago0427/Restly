@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restly</title>
-    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-
+    <link rel="stylesheet" href="styles.css">
 </head>
 <header>
         <div class="header-content">
@@ -23,12 +22,16 @@
             <%= link_to "新規登録", new_user_registration_path, class: "" %>
         <% end %>
     </nav>
-    <div class="main-content">
-        <div class="section">
-            <div class="section-title">休憩</div>
-            <div class="circle">クイックスタート</div>
-            <div class="circle">休憩詳細設定</div>
+<div class="main-content">
+        <div class="time-section">
+            <div class="time-circle">
+                <div class="time-remaining">30:00</div>
+                <svg class="progress-ring" width="300" height="300">
+                    <circle class="progress-ring__circle" stroke="black" stroke-width="4" fill="transparent" r="140" cx="150" cy="150"/>
+                </svg>
+            </div>
         </div>
+    </div>
         <div class="section">
             <div class="section-title">やらないことリスト</div>
             <div class="circle">例えば<br>物を多く持たない</div>
@@ -52,5 +55,6 @@
             <p>利用規約</p>
         </div>
     </footer>
+    <script src="index.js"></script>
 </body>
 </html>
