@@ -7,4 +7,6 @@ Rails.application.routes.draw do
 
   root 'rest#index'
   get 'rest/index'
+  resources :rest, only: [:index, :show]
+
 end
