@@ -8,40 +8,56 @@ document.addEventListener('DOMContentLoaded', () => {
   circle.style.strokeDasharray = CIRCUMFERENCE;
   circle.style.strokeDashoffset = CIRCUMFERENCE;
 
-  let duration = 1 * 60; // タイマーの初期時間（秒）
+  let duration = 5 * 60; // タイマーの初期時間（秒）
+  let timerInterval;
+  let isRunning = false;
 
   function startTimer(duration) {
     let startTime = Date.now();
-    let timerInterval = setInterval(() => {
+    timerInterval = setInterval(() => {
         let elapsedTime = (Date.now() - startTime) / 1000; // 経過時間を秒単位で取得
         let remainingTime = duration - elapsedTime;
         if (remainingTime <= 0) {
             clearInterval(timerInterval);
             remainingTime = 0;
+            isRunning = false;
         }
         timeDisplay.textContent = formatTime(Math.floor(remainingTime)); // 小数点以下を切り捨て
         updateCircle(remainingTime, duration);
     }, 100); // 100ミリ秒ごとに更新
-}
+  }
 
-function formatTime(seconds) {
+  function stopTimer() {
+    clearInterval(timerInterval);
+  }
+
+  function formatTime(seconds) {
     const mins = Math.floor(seconds / 60);
     const secs = Math.floor(seconds % 60); // 小数点以下を切り捨て
     return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
-}
-
-
+  }
 
   function updateCircle(timeLeft, duration) {
       const offset = CIRCUMFERENCE - (timeLeft / duration) * CIRCUMFERENCE;
       circle.style.strokeDashoffset = -offset;
   }
 
-  function formatTime(seconds) {
-      const mins = Math.floor(seconds / 60);
-      const secs = seconds % 60;
-      return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
-  }
+  // タイマーをクリックで開始/停止する
+  timeCircle.addEventListener('click', () => {
+    if (isRunning) {
+      stopTimer();
+    } else {
+      startTimer(duration);
+    }
+    isRunning = !isRunning;
+  });
 
-  startTimer(duration);
+  timeCircle.addEventListener('mouseover', () => {
+    timeCircle.classList.add('glow');
+  });
+
+  timeCircle.addEventListener('mouseout', () => {
+    timeCircle.classList.remove('glow');
+  });
+
 });

@@ -349,3 +349,7 @@ footer::before {
     padding: 8px;
   }
 }
+.glow {
+  background-color: rgb(184, 255, 198);
+  transition: background-color 0.3s;
+}

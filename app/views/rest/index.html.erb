@@ -3,29 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restly</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <title translate="no">Restly</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <header>
         <div class="header-content">
-        <h1 class="header-title">Restly</h1>
+        <h1 class="header-title" translate="no">Restly</h1>
     </header>
     <nav>
-        <a href="#">コラム</a>
-        <a href="#">記録</a>
-        <a href="#">マイページ</a>
-        <% if user_signed_in? %>
-            <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete } %>
-        <% else %>
-            <%= link_to "ログイン", new_user_session_path, class: "" %>
+<a href="#">コラム</a>
+<a href="#">記録</a>
+<% if user_signed_in? %>
+  <%= link_to 'マイページ', rest_path(current_user.id) %>
+  <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete } %>
+<% else %>
+  <%= link_to "ログイン", new_user_session_path %>
+
             <%= link_to "新規登録", new_user_registration_path, class: "" %>
         <% end %>
     </nav>
 <div class="main-content">
         <div class="time-section">
             <div class="time-circle">
-                <div class="time-remaining">30:00</div>
+                <div class="time-remaining">タップでスタート</div>
                 <svg class="progress-ring" width="300" height="300">
                     <circle class="progress-ring__circle" stroke="black" stroke-width="4" fill="transparent" r="140" cx="150" cy="150"/>
                 </svg>
