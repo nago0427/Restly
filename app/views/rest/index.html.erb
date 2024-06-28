@@ -6,54 +6,83 @@
     <title translate="no">Restly</title>
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+
 </head>
 <header>
         <div class="header-content">
+           <div class="log">
+             <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete } %>
+             </div>
         <h1 class="header-title" translate="no">Restly</h1>
     </header>
     <nav>
-<a href="#">コラム</a>
-<a href="#">記録</a>
+<%= link_to '#', class: 'nav-link' do %>コラム<% end %>
+  <%= link_to '#', class: 'nav-link' do %>記録<% end %>
 <% if user_signed_in? %>
-  <%= link_to 'マイページ', rest_path(current_user.id) %>
-  <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete } %>
+<%= link_to 'マイページ', rest_path(current_user.id), class: "nav-link" %>
 <% else %>
-  <%= link_to "ログイン", new_user_session_path %>
+<%= link_to "ログイン", new_user_session_path, class: "nav-link" %>
+    <%= link_to "新規登録", new_user_registration_path, class: "nav-link" %>
+  <% end %>
 
-            <%= link_to "新規登録", new_user_registration_path, class: "" %>
-        <% end %>
     </nav>
 <div class="main-content">
         <div class="time-section">
             <div class="time-circle">
                 <div class="time-remaining">タップでスタート</div>
-                <svg class="progress-ring" width="300" height="300">
-                    <circle class="progress-ring__circle" stroke="black" stroke-width="4" fill="transparent" r="140" cx="150" cy="150"/>
-                </svg>
+<svg class="progress-ring" width="410" height="410">
+            <circle class="progress-ring__circle" stroke="black" stroke-width="4" fill="transparent" r="195" cx="205" cy="205"/>
+        </svg>
             </div>
         </div>
     </div>
-        <div class="section">
-            <div class="section-title">やらないことリスト</div>
-            <div class="circle">例えば<br>物を多く持たない</div>
-            <div class="circle">例えば<br>心から楽しめない<br>飲み会に行かない</div>
-            <div class="circle">例えば<br>通勤しない</div>
+    <div class="section-title">やらないことリスト</div>
+        <div class="not-todo-section">
+            <div class="circle">物を多く持たない</div>
+            <div class="circle">心から楽しめない<br>飲み会に行かない</div>
+            <div class="circle">眠る前に<br>SNSを見ない</div>
         </div>
+        <div class="section-title">1分コラムを掲載</div>
 <div class="section">
-            <div class="section-title">1分コラムを掲載</div>
             <div class="grid">
-                <div class="grid-item">コラム1</div>
-                <div class="grid-item">コラム2</div>
-                <div class="grid-item">コラム3</div>
-                <div class="grid-item">コラム4</div>
-                <div class="grid-item">コラム5</div>
-                <div class="grid-item">コラム6</div>
+                <div class="grid-item">
+                    <img src="<%= asset_path('pexrest.jpg') %>" alt="コラム画像" class="column-image">
+                    <h3 class="column-title">タイトル</h3>
+                    <button class="read-more-btn">もっと見る</button>
+                    </div>
+                    <div class="grid-item">
+                    <img src="<%= asset_path('pexrest.jpg') %>" alt="コラム画像" class="column-image">
+                    <h3 class="column-title">タイトル</h3>
+                    <button class="read-more-btn">もっと見る</button>
+                    </div>
+                    <div class="grid-item">
+                    <img src="<%= asset_path('pexrest.jpg') %>" alt="コラム画像" class="column-image">
+                    <h3 class="column-title">タイトル</h3>
+                    <button class="read-more-btn">もっと見る</button>
+                    </div>
+                    <div class="grid-item">
+                    <img src="<%= asset_path('pexrest.jpg') %>" alt="コラム画像" class="column-image">
+                    <h3 class="column-title">タイトル</h3>
+                    <button class="read-more-btn">もっと見る</button>
+                    </div>
+                    <div class="grid-item">
+                    <img src="<%= asset_path('pexrest.jpg') %>" alt="コラム画像" class="column-image">
+                    <h3 class="column-title">タイトル</h3>
+                    <button class="read-more-btn">もっと見る</button>
+                    </div>
+                    <div class="grid-item">
+                    <img src="<%= asset_path('pexrest.jpg') %>" alt="コラム画像" class="column-image">
+                    <h3 class="column-title">タイトル</h3>
+                    <button class="read-more-btn">もっと見る</button>
+                    </div>
+
             </div>
         </div>
     </div>
     <footer>
         <div class="footer-content">
-            <p>利用規約</p>
+            利用規約
         </div>
     </footer>
     <script src="index.js"></script>
